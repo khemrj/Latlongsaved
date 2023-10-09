@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.bloodlink.dashboard.dashboard;
+
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private EditText editText;
