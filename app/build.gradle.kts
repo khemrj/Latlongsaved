@@ -5,6 +5,9 @@ plugins {
 android {
     namespace = "com.example.bloodlink"
     compileSdk = 33
+    buildFeatures{
+        viewBinding=true
+    }
 
     defaultConfig {
         applicationId = "com.example.bloodlink"
