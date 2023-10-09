@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.login.R;
+import com.example.bloodlink.R;
 
 import java.util.ArrayList;
 
