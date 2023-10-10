@@ -6,9 +6,15 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.bloodlink.R;
 import com.example.bloodlink.databinding.ActivityDashboardBinding;
 import com.example.bloodlink.myprofile.myprofile;
 import com.example.bloodlink.searchdonor.searchdonor;
+
+import java.util.ArrayList;
 
 public class dashboard extends AppCompatActivity {
 ActivityDashboardBinding binding;
@@ -19,6 +25,11 @@ ActivityDashboardBinding binding;
         binding=ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        ImageSlider imageSlider=binding.imageSlider;
+        ArrayList<SlideModel>slideModels=new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.bl1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.b2, ScaleTypes.FIT));
+        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 
         binding.requested.setOnClickListener(new View.OnClickListener() {
             @Override
