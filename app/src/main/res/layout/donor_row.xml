@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -78,7 +79,7 @@
                         android:id="@+id/txtAge"
                         android:layout_width="97dp"
                         android:layout_height="wrap_content"
-                        android:hint="age here"
+
                         android:textSize="16sp" />
 
                     <TextView
@@ -86,13 +87,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="BloodGroup="
+                        android:textStyle="bold"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/txtBloodGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:hint="blood group "
+
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -115,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="pints here"
+
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -140,8 +142,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="location"
+
                         android:textSize="18sp" />
+                    <ImageButton
+                        android:id="@+id/locationPin"
+                        android:layout_marginLeft="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="locationPin"
+                        android:contextClickable="true"
+                        android:background="@drawable/baseline_location_on_24"
+
+                        />
 
                 </LinearLayout>
 
