@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdapter.ViewHolder> {
     @NonNull
     Context context;
+    Button call;
     ArrayList<DonorModel> arrDonor;
 
     RecyclerDonorAdapter(@NonNull Context context, ArrayList<DonorModel> arrDonor) {
@@ -80,7 +81,7 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
 
                     // Set the text of the button based on the model's property
                     //  holder.acceptButton.setText(arrDonor.get(position).getAcceptButtonText());
-                    arrDonor.get(adapterPosition).setAcceptButtonText("Accepted");
+                    arrDonor.get(adapterPosition).setAcceptButtonText("Call");
 
 
                     notifyDataSetChanged();
