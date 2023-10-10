@@ -1,6 +1,7 @@
 package com.example.bloodlink.becomeadonor;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bloodlink.R;
+import com.example.bloodlink.dashboard.dashboard;
 
 import java.util.Calendar;
 
@@ -21,7 +23,7 @@ public class becomeadonor extends AppCompatActivity {
     TextView dob;
     CheckBox checkBox;
     EditText fullName, bloodGroup, address, lastdonatedtime, gender;
-    Button button, skip;
+    Button button, cancel;
 
 
     @Override
@@ -37,7 +39,7 @@ public class becomeadonor extends AppCompatActivity {
 
         checkBox = findViewById(R.id.checkBox);
         button = findViewById(R.id.button);
-        skip = findViewById(R.id.skip);
+        cancel = findViewById(R.id.cancel);
 
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +112,13 @@ public class becomeadonor extends AppCompatActivity {
                     // Checkbox is not checked, show a message
                     Toast.makeText(becomeadonor.this, "Please check the 'Become a Donor' checkbox.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(becomeadonor.this, dashboard.class);
+                startActivity(intent);
             }
         });
     }

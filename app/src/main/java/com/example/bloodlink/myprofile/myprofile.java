@@ -1,5 +1,6 @@
 package com.example.bloodlink.myprofile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bloodlink.R;
+import com.example.bloodlink.becomeadonor.becomeadonor;
 
 public class myprofile extends AppCompatActivity {
 TextView textView, txtName,txtAge,txtBloodGroup,txtLocation,txtType;
@@ -36,7 +38,9 @@ String s=txtName.getText().toString();
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(myprofile.this, s+" has  Beome A Donor", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(myprofile.this, s+" has  Beome A Donor", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(myprofile.this, becomeadonor.class);
+                startActivity(intent);
                 txtName.setText("");
                 txtAge.setText("");
                 txtBloodGroup.setText("");
