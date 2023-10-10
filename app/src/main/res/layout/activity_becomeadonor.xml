@@ -15,7 +15,8 @@
         android:layout_marginTop="40dp"
         android:text="Become a donor"
         android:textColor="@color/white"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:fontFamily="@font/font1"/>
 
     <EditText
         android:id="@+id/fullName"
