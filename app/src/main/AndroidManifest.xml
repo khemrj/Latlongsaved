@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodLink"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCt6ssn_MY86DAXX6ICL0IHaHCAvXAVpHk" />
+        <activity
+            android:name=".dlist"
+            android:exported="false" />
+        <activity
+            android:name=".searchdonor.searchdonor"
+            android:exported="true" />
+        <activity
+            android:name=".requestedpage.requestlistpage"
+            android:exported="true" />
+        <activity
+            android:name=".dashboard.dashboard"
+            android:exported="true" />
+        <activity
+            android:name=".myprofile.myprofile"
+            android:exported="false" />
+        <activity
+            android:name=".donorpage.donorPage"
+            android:exported="true" />
+        <activity
+            android:name=".becomeadonor.becomeadonor"
+            android:exported="false" />
+        <activity
+            android:name=".forgetPassword"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
