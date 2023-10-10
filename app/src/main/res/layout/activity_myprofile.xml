@@ -17,7 +17,9 @@
         android:textSize="45dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="-35dp"
-        tools:layout_editor_absoluteY="133dp" />
+        tools:layout_editor_absoluteY="133dp"
+        android:fontFamily="@font/font1"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -22,7 +22,8 @@
             android:text="DONOR"
             android:textAlignment="center"
             android:textSize="48dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/font1"/>
     </LinearLayout>
 
     <LinearLayout
