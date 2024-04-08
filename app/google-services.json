@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791560450255",
+    "project_id": "coral-polymer-400515",
+    "storage_bucket": "coral-polymer-400515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791560450255:android:69181b06fda7a27bf6c7ba",
+        "android_client_info": {
+          "package_name": "com.example.bloodlink"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_sL___Pqah9spYv440nKb41Jpw27cWy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
