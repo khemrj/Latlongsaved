@@ -14,7 +14,7 @@ import com.example.bloodlink.becomeadonor.becomeadonor;
 
 public class myprofile extends AppCompatActivity {
 TextView textView, txtName,txtAge,txtBloodGroup,txtLocation,txtType;
-Button button2;
+Button button2;//declaration for button2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ Button button2;
         txtLocation=findViewById(R.id.txtLocation);
         txtType=findViewById(R.id.txtType);
         textView=findViewById(R.id.textView);
-        button2=findViewById(R.id.button2);
+        button2=findViewById(R.id.button2);//find and assigning the value button2
 
         txtName.setText("Suman Shah");
         txtAge.setText("23");

@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -16,14 +18,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.bloodlink.R;
 import com.example.bloodlink.dashboard.dashboard;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class becomeadonor extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener setListener;
     TextView dob;
     CheckBox checkBox;
-    EditText fullName, bloodGroup, address, lastdonatedtime, gender;
+    EditText fullName , address, lastdonatedtime;
     Button button, cancel;
+    AutoCompleteTextView bloodGroup,gender;
+
+
+    ArrayList<String>arblood=new ArrayList<>();
+    ArrayList<String>argender=new ArrayList<>();
+
 
 
     @Override
@@ -32,7 +41,7 @@ public class becomeadonor extends AppCompatActivity {
         setContentView(R.layout.activity_becomeadonor);
         dob = findViewById(R.id.dob);
         fullName = findViewById(R.id.fullName);
-        bloodGroup = findViewById(R.id.bloodGroup);
+       // bloodGroup = findViewById(R.id.bloodGroup);
         address = findViewById(R.id.address);
         lastdonatedtime = findViewById(R.id.lastdonatedtime);
         gender = findViewById(R.id.gender);
@@ -40,6 +49,9 @@ public class becomeadonor extends AppCompatActivity {
         checkBox = findViewById(R.id.checkBox);
         button = findViewById(R.id.button);
         cancel = findViewById(R.id.cancel);
+        bloodGroup=findViewById(R.id.bloodGroup);
+
+
 
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,12 +133,34 @@ public class becomeadonor extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        arblood.add("A+");
+        arblood.add("AB+");
+        arblood.add("AB-");
+        arblood.add("B+");
+        arblood.add("B-");
+        arblood.add("O-");
+        arblood.add("O+");
+
+        ArrayAdapter<String>bloodAdapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arblood);
+        bloodGroup.setAdapter(bloodAdapter);
+
+        //---------------------gender
+        argender.add("Male");
+        argender.add("Female");
+        argender.add("Other");
+        ArrayAdapter<String>genderAdapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,argender);
+        gender.setAdapter(genderAdapter);
     }
 
     // Helper function to check if an EditText is filled
     private boolean isEditTextFilled(EditText editText) {
         return editText.getText() != null && !editText.getText().toString().isEmpty();
     }
+
+
+
+
 }
 
 

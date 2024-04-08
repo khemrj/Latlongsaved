@@ -26,22 +26,22 @@
             android:exported="false" />
         <activity
             android:name=".searchdonor.searchdonor"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".requestedpage.requestlistpage"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".dashboard.dashboard"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".myprofile.myprofile"
             android:exported="false" />
         <activity
             android:name=".donorpage.donorPage"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".becomeadonor.becomeadonor"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".forgetPassword"
             android:exported="false" />
