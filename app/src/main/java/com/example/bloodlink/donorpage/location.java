@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,10 +21,11 @@ public class location extends AppCompatActivity {
         setContentView(R.layout.donor_row);
 
 
-        imageButton = findViewById(R.id.locationPin);
+        imageButton =(ImageButton) findViewById(R.id.locationPin);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(location.this, "button pin location clicked ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(location.this, MapsActivity.class);
                 startActivity(intent);
             }
