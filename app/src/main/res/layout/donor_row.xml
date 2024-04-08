@@ -147,8 +147,8 @@
                     <ImageButton
                         android:id="@+id/locationPin"
                         android:layout_marginLeft="25dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:contentDescription="locationPin"
                         android:contextClickable="true"
                         android:background="@drawable/baseline_location_on_24"
