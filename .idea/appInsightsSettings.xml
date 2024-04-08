@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.bloodlink" />
+                  <option name="mobileSdkAppId" value="1:791560450255:android:69181b06fda7a27bf6c7ba" />
+                  <option name="projectId" value="coral-polymer-400515" />
+                  <option name="projectNumber" value="791560450255" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
