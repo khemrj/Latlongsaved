@@ -1,17 +1,21 @@
 package com.example.bloodlink.donorpage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bloodlink.MapsActivity;
 import com.example.bloodlink.R;
 
 import java.util.ArrayList;
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdapter.ViewHolder> {
     @NonNull
     Context context;
+    String imageButton;//EX09april
     Button call;
     ArrayList<DonorModel> arrDonor;
 
@@ -42,11 +47,25 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
 
 
         holder.imgContact.setImageResource(arrDonor.get(position).img);
+        holder.imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+
+                    arrDonor.get(adapterPosition);
+                    Intent intent=new Intent(v.getContext(),location.class);
+                    notifyDataSetChanged();
+                }
+            }
+        });
+
         holder.txtName.setText(arrDonor.get(position).name);
         holder.txtAge.setText(arrDonor.get(position).age);
         holder.txtBloodGroup.setText(arrDonor.get(position).bloodgroup);
         holder.txtPints.setText(arrDonor.get(position).pints);
         holder.txtLocation.setText(arrDonor.get(position).location);
+
         // Bind other data as before
 
         // Set the visibility of the button based on the model's property
@@ -56,6 +75,7 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
 //        } else {
 //            holder.acceptButton.setVisibility(View.GONE);
 //        }
+
 
 
         // Set the text of the button based on the model's property
@@ -68,7 +88,28 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
             // Set the default background color for other cases
             holder.acceptButton.setBackgroundColor(ContextCompat.getColor(context, com.google.android.material.R.color.design_default_color_primary));
         }
+        holder.imageButton.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               int position = holder.getAdapterPosition();
+                                               if (position != RecyclerView.NO_POSITION) {
+                                                   // Retrieve the donor object at the current position
+                                                   DonorModel donor = arrDonor.get(position);
+                                                   // Get the location text from the TextView
+                                                   String location =holder.txtLocation.getText().toString();
+                                                   // Create an intent to launch the LocationActivity.class
+                                                   Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                                                   // Pass any necessary data to the LocationActivity
+                                                   // Pass the location text to the LocationActivity
+                                                   //intent.putExtra("location", location);
+                                                   //  intent.putExtra("donor_id", donor.getId(txtLocation)); // Example: Passing donor ID
+                                                   // Start the LocationActivity
+                                                   v.getContext().startActivity(intent);
+                                               }
 
+                                           }
+                                       }
+        );
         // Handle the "Accept" button click
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +143,7 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
         TextView txtName, txtAge, txtBloodGroup, txtPints, txtLocation;
         ImageView imgContact;
         Button acceptButton;
+        ImageButton imageButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -112,8 +154,9 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
             txtPints = itemView.findViewById(R.id.txtPints);
             txtLocation = itemView.findViewById(R.id.txtLocation);
             acceptButton = itemView.findViewById(R.id.acceptButton);
+            imageButton=itemView.findViewById(R.id.locationPin);
 
-
-        }
+            // Set OnClickListener for the ImageButton
+           }
     }
 }
