@@ -12,7 +12,7 @@ import com.example.bloodlink.MapsActivity;
 import com.example.bloodlink.R;
 import com.example.bloodlink.dashboard.dashboard;
 
-public class location extends AppCompatActivity {
+public  class location extends AppCompatActivity {
     public ImageButton imageButton;
 
 
@@ -22,13 +22,10 @@ public class location extends AppCompatActivity {
 
 
         imageButton =(ImageButton) findViewById(R.id.locationPin);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(location.this, "button pin location clicked ", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(location.this, MapsActivity.class);
-                startActivity(intent);
-            }
+        imageButton.setOnClickListener(v -> {
+            Toast.makeText(location.this, "button pin location clicked ", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(location.this, MapsActivity.class);
+            startActivity(intent);
         });
 
     }

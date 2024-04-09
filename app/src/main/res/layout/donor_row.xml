@@ -152,7 +152,6 @@
                         android:contentDescription="locationPin"
                         android:contextClickable="true"
                         android:background="@drawable/baseline_location_on_24"
-
                         />
 
                 </LinearLayout>
