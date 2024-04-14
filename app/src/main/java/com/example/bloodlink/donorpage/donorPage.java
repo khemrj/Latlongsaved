@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bloodlink.MapsActivity;
+import com.example.bloodlink.googleMaps.Maps;
 import com.example.bloodlink.R;
 
 import java.util.ArrayList;

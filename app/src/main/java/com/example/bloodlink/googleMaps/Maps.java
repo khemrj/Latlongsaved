@@ -1,7 +1,4 @@
-package com.example.bloodlink;
-
-import android.app.Activity;
-
+package com.example.bloodlink.googleMaps;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -16,7 +13,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.bloodlink.R;
 import com.example.bloodlink.databinding.ActivityMapsBinding;
-import com.example.bloodlink.googleMaps.Maps;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -28,7 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -63,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     // Obtain the SupportMapFragment and get notified when the map is ready to be used.
                     SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                             .findFragmentById(R.id.maps);
-                    mapFragment.getMapAsync(MapsActivity.this);
+                    mapFragment.getMapAsync(Maps.this);
 
                 }
             }
@@ -106,5 +102,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 }
-
-
