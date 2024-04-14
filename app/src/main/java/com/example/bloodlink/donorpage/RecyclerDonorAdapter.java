@@ -54,8 +54,8 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
                 if (adapterPosition != RecyclerView.NO_POSITION) {
 
                     arrDonor.get(adapterPosition);
-                    Intent intent=new Intent(v.getContext(),location.class);
-                    notifyDataSetChanged();
+//                    Intent intent=new Intent(v.getContext(),location.class);
+//                    notifyDataSetChanged();
                 }
             }
         });
