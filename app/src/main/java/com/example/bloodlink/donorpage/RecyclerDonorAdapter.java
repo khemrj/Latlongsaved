@@ -112,6 +112,7 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
 
             private void openGoogleMaps() {
                 // Latitude and Longitude of the location of user
+                //make latlong dynamic from database
                 double latitude = 28.807678;
                 double longitude = 80.547765;
 
