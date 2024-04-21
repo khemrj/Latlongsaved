@@ -2,6 +2,7 @@ package com.example.bloodlink.donorpage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,6 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         //here problem is showning don't treat position as fixed ;only use immedately and call 'holder.getAdapterPosition()' to look it up later in this fun public void onBindViewHolder(@NonNull ViewHolder holder, int position)
         int adapterPosition = holder.getAdapterPosition();
 
@@ -89,27 +89,50 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
             holder.acceptButton.setBackgroundColor(ContextCompat.getColor(context, com.google.android.material.R.color.design_default_color_primary));
         }
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               int position = holder.getAdapterPosition();
-                                               if (position != RecyclerView.NO_POSITION) {
-                                                   // Retrieve the donor object at the current position
-                                                   DonorModel donor = arrDonor.get(position);
-                                                   // Get the location text from the TextView
-                                                   String location =holder.txtLocation.getText().toString();
-                                                   // Create an intent to launch the LocationActivity.class
-                                                   Intent intent = new Intent(v.getContext(), MapsActivity.class);
-                                                   // Pass any necessary data to the LocationActivity
-                                                   // Pass the location text to the LocationActivity
-                                                   //intent.putExtra("location", location);
-                                                   //  intent.putExtra("donor_id", donor.getId(txtLocation)); // Example: Passing donor ID
-                                                   // Start the LocationActivity
-                                                   v.getContext().startActivity(intent);
-                                               }
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    // Retrieve the donor object at the current position
+                    DonorModel donor = arrDonor.get(position);
+                    // Get the location text from the TextView
+                    String location = holder.txtLocation.getText().toString();
+                    // Create an intent to launch the LocationActivity.class
+                    //  Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                    // Pass any necessary data to the LocationActivity
+                    // Pass the location text to the LocationActivity
+                    //intent.putExtra("location", location);
+                    //  intent.putExtra("donor_id", donor.getId(txtLocation)); // Example: Passing donor ID
+                    // Start the LocationActivity
+                    // v.getContext().startActivity(intent);
+                    openGoogleMaps();
+                }
 
-                                           }
-                                       }
-        );
+            }
+
+            private void openGoogleMaps() {
+                // Latitude and Longitude of the location of user
+                //make latlong dynamic from database
+                double latitude = 28.807678;
+                double longitude = 80.547765;
+
+                Uri gmmIntentUri = Uri.parse("geo:" + latitude + "," + longitude + "?q=" + latitude + "," + longitude + "(Marker+Title)");
+
+                // Create an Intent with action VIEW and the Uri
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+
+                // Set the package of the application to be opened (Google Maps)
+                mapIntent.setPackage("com.google.android.apps.maps");
+
+                // Verify if there's an application available to handle the Intent
+                if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+                    // Start the activity
+                    context.startActivity(mapIntent);
+                } else {
+                    Toast.makeText(context, "maps not installed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         // Handle the "Accept" button click
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,8 +152,6 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
                 }
             }
         });
-
-
     }
 
     @Override
@@ -154,9 +175,9 @@ public class RecyclerDonorAdapter extends RecyclerView.Adapter<RecyclerDonorAdap
             txtPints = itemView.findViewById(R.id.txtPints);
             txtLocation = itemView.findViewById(R.id.txtLocation);
             acceptButton = itemView.findViewById(R.id.acceptButton);
-            imageButton=itemView.findViewById(R.id.locationPin);
+            imageButton = itemView.findViewById(R.id.locationPin);
 
             // Set OnClickListener for the ImageButton
-           }
+        }
     }
 }
