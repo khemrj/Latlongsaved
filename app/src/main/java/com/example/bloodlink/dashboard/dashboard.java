@@ -2,31 +2,57 @@ package com.example.bloodlink.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.bloodlink.MainActivity;
 import com.example.bloodlink.R;
 import com.example.bloodlink.databinding.ActivityDashboardBinding;
 import com.example.bloodlink.donorpage.donorPage;
 import com.example.bloodlink.myprofile.myprofile;
 import com.example.bloodlink.searchdonor.searchdonor;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class dashboard extends AppCompatActivity {
 ActivityDashboardBinding binding;
     ImageButton notify;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        try{
+            Intent intent = getIntent();
+            String Token = intent.getStringExtra("Token");
+            Log.d("Malware",Token);
+        }
+        catch (Exception e){
+            Log.e("MYAPP", "exception: " + e.getMessage());
+        }
+        Demo("eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwidXNlcm5hbWUiOiI5ODU0Iiwic3ViIjoiOTg1NCIsImlhdCI6MTcxODM0MDM2OSwiZXhwIjoxODA0NzQwMzY5fQ.nyrhjJuHuhnYBlpW_Z4x973HfjTLKpRqBaYFHO3zLpEOQwZuKA2mldlidk12DyiMpiBfpYnO3x3ykhIJLMVmug");
         notify = findViewById(R.id.notification);
         notify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +83,46 @@ ActivityDashboardBinding binding;
                startActivity(intent);
            }
        });
+
+    }
+    public void Demo( String Token){
+        String url = "http://192.168.1.69:8085/api/v1/user/users";
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url, new JSONArray(),new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for( int i = 0; i<response.length();i++) {
+                        JSONObject objectResponse = response.getJSONObject(i);
+                        Toast.makeText(getApplicationContext(),objectResponse.getString("username"),Toast.LENGTH_LONG).show();
+                        Log.d("Volleyresponse", objectResponse.getString("username"));
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e("Error234",e.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.d("volleyError", error.toString());
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Bearer "+Token);
+
+                return headers;
+            }
+        };
+
+        requestQueue.add(jsonObjectRequest);
 
     }
 }

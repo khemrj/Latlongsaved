@@ -47,7 +47,7 @@ public class becomeadonor extends AppCompatActivity {
         gender = findViewById(R.id.gender);
 
         checkBox = findViewById(R.id.checkBox);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.loginButton);
         cancel = findViewById(R.id.cancel);
         bloodGroup=findViewById(R.id.bloodGroup);
 

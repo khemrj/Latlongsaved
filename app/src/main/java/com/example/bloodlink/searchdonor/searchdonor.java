@@ -36,7 +36,7 @@ public class searchdonor extends AppCompatActivity {
 
         ArrayAdapter<String> bloodAdapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arrbloodGroup);
         binding.bloodgroup.setAdapter(bloodAdapter);
-        binding.button.setOnClickListener(new View.OnClickListener() {
+        binding.loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
