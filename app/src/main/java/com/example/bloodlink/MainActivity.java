@@ -55,15 +55,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String Token = createNewUser();
-                Intent intent=new Intent(MainActivity.this, dashboard.class);
-                Log.d("mainToken","hello"+Token);
-                intent.putExtra("Token",Token);
-                startActivity(intent);
+                 createNewUser();
+
             }
         });
     }
-    private  String createNewUser() {
+    private  void createNewUser() {
+
+        final String[] Token = new String[1];
 
         String url = "http://192.168.1.69:8085/api/v1/user/signup";
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -80,8 +79,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Token = response.getString("accessToken");
-                    Log.d("Token generated is",Token);
+                    Token[0] = response.getString("accessToken");
+                    Intent intent=new Intent(MainActivity.this, dashboard.class);
+                    Log.d("mainToken","hello"+ Token[0]);  // This Token has null value but why??
+                    intent.putExtra("Token", Token[0]);
+                    startActivity(intent);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -95,9 +98,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         requestQueue.add(jsonObjectRequest);
-        return Token;
+
+
 
     }
+
 
 
 

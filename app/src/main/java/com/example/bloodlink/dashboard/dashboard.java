@@ -48,11 +48,11 @@ ActivityDashboardBinding binding;
             Intent intent = getIntent();
             String Token = intent.getStringExtra("Token");
             Log.d("Malware",Token);
+            Demo(Token);
         }
         catch (Exception e){
             Log.e("MYAPP", "exception: " + e.getMessage());
         }
-        Demo("eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwidXNlcm5hbWUiOiI5ODU0Iiwic3ViIjoiOTg1NCIsImlhdCI6MTcxODM0MDM2OSwiZXhwIjoxODA0NzQwMzY5fQ.nyrhjJuHuhnYBlpW_Z4x973HfjTLKpRqBaYFHO3zLpEOQwZuKA2mldlidk12DyiMpiBfpYnO3x3ykhIJLMVmug");
         notify = findViewById(R.id.notification);
         notify.setOnClickListener(new View.OnClickListener() {
             @Override
