@@ -16,191 +16,248 @@
         android:layout_marginTop="40dp"
         android:text="Become a donor"
         android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textSize="20sp"
         android:fontFamily="@font/font1"/>
-
-    <EditText
-        android:id="@+id/fullName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/edit_round"
-        android:hint="Full Name"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
-
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        app:boxBackgroundColor="#FFFFFFFF"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusTopStart="25dp"
-
-        app:boxStrokeColor="#FFFFFFFF"
-        app:boxStrokeWidth="0dp"
-        app:hintEnabled="false">
-
-        <AutoCompleteTextView
-
-            android:id="@+id/bloodGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:gravity="center"
-            android:hint="BloodGroup"
-            android:inputType="none"
-            android:rotation="0"
-            android:textColorHint="#0B0B0B"
-            android:textSize="20sp"
-            android:importantForAccessibility="no"
-
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-<!--    <EditText-->
-<!--        android:id="@+id/BBloodGroup"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginLeft="50dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginRight="50dp"-->
-<!--        android:background="@drawable/edit_round"-->
-<!--        android:hint="BloodGroup"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColorHint="@color/black" />-->
-
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/edit_round"
-        android:hint="Address"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"/>
-
-    <TextView
-        android:id="@+id/dob"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/edit_round"
-        android:gravity="center"
-        android:hint="DOB"
-        android:inputType="date"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/lastdonatedtime"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/edit_round"
-        android:hint="Last Donated Time In Months"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:inputType="number"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
-
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        app:boxBackgroundColor="#FFFFFFFF"
-        app:boxCornerRadiusBottomEnd="25dp"
-        app:boxCornerRadiusBottomStart="25dp"
-        app:boxCornerRadiusTopEnd="25dp"
-        app:boxCornerRadiusTopStart="25dp"
-
-        app:boxStrokeColor="#FFFFFFFF"
-        app:boxStrokeWidth="0dp"
-        app:hintEnabled="false">
-
-        <AutoCompleteTextView
-
-            android:id="@+id/gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:gravity="center"
-            android:hint="Gender"
-            android:inputType="none"
-            android:rotation="0"
-            android:textColorHint="#0B0B0B"
-            android:textSize="20sp"
-            android:importantForAccessibility="no"
-
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-<!--    <EditText-->
-<!--        android:id="@+id/Geender"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginLeft="50dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginRight="50dp"-->
-<!--        android:background="@drawable/edit_round"-->
-<!--        android:hint="Gendwer"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColorHint="@color/black" />-->
-
-    <CheckBox
-        android:id="@+id/checkBox"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Become a Donor"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:checked="false"
-        android:gravity="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="10dp"/>
+        app:cardCornerRadius="7dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/Lightblue">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:orientation="vertical"
+
+            >
+            <EditText
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edit_round"
+                android:hint="Full Name"
+                android:textAlignment="center"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                app:boxBackgroundColor="#FFFFFFFF"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp"
+
+                app:boxStrokeColor="#FFFFFFFF"
+                app:boxStrokeWidth="0dp"
+                app:hintEnabled="false"
+
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp">
+
+                <AutoCompleteTextView
+
+                    android:id="@+id/bloodGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_round"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:hint="BloodGroup"
+                    android:inputType="none"
+                    android:rotation="0"
+                    android:textColorHint="@color/grey"
+                    android:textSize="14sp"
+                    android:importantForAccessibility="no"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    <EditText-->
+            <!--        android:id="@+id/BBloodGroup"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="50dp"-->
+            <!--        android:layout_marginLeft="50dp"-->
+            <!--        android:layout_marginTop="20dp"-->
+            <!--        android:layout_marginRight="50dp"-->
+            <!--        android:background="@drawable/edit_round"-->
+            <!--        android:hint="BloodGroup"-->
+            <!--        android:textAlignment="center"-->
+            <!--        android:textColorHint="@color/black" />-->
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edit_round"
+                android:hint="Address"
+                android:textAlignment="center"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp"/>
+
+            <TextView
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edit_round"
+                android:gravity="center"
+                android:hint="DOB"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp"/>
+
+            <EditText
+                android:id="@+id/lastdonatedtime"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edit_round"
+                android:hint="Last Donated Time In Months"
+                android:textAlignment="center"
+                android:textColorHint="@color/grey"
+                android:textSize="14sp"
+                android:inputType="number"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                app:boxBackgroundColor="#FFFFFFFF"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp"
+                android:background="@drawable/edit_round"
+
+                app:boxStrokeColor="#FFFFFFFF"
+                app:boxStrokeWidth="0dp"
+                app:hintEnabled="false"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeStepGranularity="2sp">
+
+                <AutoCompleteTextView
+
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:hint="Gender"
+                    android:inputType="none"
+                    android:rotation="0"
+                    android:textColorHint="@color/grey"
+                    android:textSize="14sp"
+                    android:importantForAccessibility="no"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    <EditText-->
+            <!--        android:id="@+id/Geender"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="50dp"-->
+            <!--        android:layout_marginLeft="50dp"-->
+            <!--        android:layout_marginTop="20dp"-->
+            <!--        android:layout_marginRight="50dp"-->
+            <!--        android:background="@drawable/edit_round"-->
+            <!--        android:hint="Gendwer"-->
+            <!--        android:textAlignment="center"-->
+            <!--        android:textColorHint="@color/black" />-->
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Become a Donor"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:checked="false"
+                android:gravity="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:text="UPDATE"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="2dp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="2sp"
+        android:background="@drawable/edit_round"
+
+        />
     <Button
         android:id="@+id/cancel"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:text="CANCEL"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"/>
+        android:layout_marginRight="50dp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="2sp"
+        android:background="@drawable/edit_round"/>
 
 </LinearLayout>
