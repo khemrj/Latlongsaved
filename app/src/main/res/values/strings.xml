@@ -22,4 +22,5 @@
     <string name="user_name">User Name\n</string>
     <string name="type">Type\n</string>
     <string name="become_a_donor">Become a donor</string>
+    <string name="url"></string>
 </resources>

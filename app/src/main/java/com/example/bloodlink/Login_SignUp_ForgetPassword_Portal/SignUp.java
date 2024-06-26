@@ -2,13 +2,28 @@ package com.example.bloodlink.Login_SignUp_ForgetPassword_Portal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
+import android.view.View;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.bloodlink.R;
+import com.example.bloodlink.becomeadonor.becomeadonor;
+import com.example.bloodlink.dashboard.dashboard;
 import com.example.bloodlink.databinding.ActivitySignUpBinding;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SignUp extends AppCompatActivity {
 ActivitySignUpBinding binding;
@@ -18,52 +33,58 @@ ActivitySignUpBinding binding;
         binding=ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.signUpTxt.setText("Sign Up");
-        binding.emailContainer.setHelperText("");
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Signup();
+            }
+        });
+       // binding.emailContainer.setHelperText("");
         binding.passwordContainer.setHelperText("");
         binding.conformPasswordContainer.setHelperText("");
         binding.phoneContainer.setHelperText("");
-        emailFocusListener();
+//        emailFocusListener();
         passwordFocusListener();
         conformPasswordFocusListener();
         phoneFocusListener();
 
     }
     //----------------------------------frontend validation--------------------------------
-    private void emailFocusListener() {
-        binding.emailEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+//    private void emailFocusListener() {
+//        binding.emailEditText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//
+//                String result = validEmail();
+//                if (result != null) {
+//                    binding.emailContainer.setHelperText(result);
+//
+//                } else {
+//                    binding.emailContainer.setHelperText("");
+//                    // Clear error text if email is valid
+//                }
+//            }
+//        });
+//    }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-
-                String result = validEmail();
-                if (result != null) {
-                    binding.emailContainer.setHelperText(result);
-
-                } else {
-                    binding.emailContainer.setHelperText("");
-                    // Clear error text if email is valid
-                }
-            }
-        });
-    }
-
-    private String validEmail() {
-        String emailText = binding.emailEditText.getText().toString().trim();
-        if (emailText.isEmpty()) {
-            return "Email cannot be empty";
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
-            return "Invalid Email Address";
-        }
-        return null; // Return null if email is valid
-    }
+//    private String validEmail() {
+//        String emailText = binding.emailEditText.getText().toString().trim();
+//        if (emailText.isEmpty()) {
+//            return "Email cannot be empty";
+//        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
+//            return "Invalid Email Address";
+//        }
+//        return null; // Return null if email is valid
+//    }
 
     private void passwordFocusListener() {
         binding.passwordEditText.addTextChangedListener(new TextWatcher() {
@@ -184,6 +205,40 @@ ActivitySignUpBinding binding;
         }
 
         return null; // Return null if email is valid
+    }
+    public void Signup(){
+        String url = "http://192.168.1.69:8085/api/v1/user/signup";
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        JSONObject jsonRequest = new JSONObject();
+        try {
+            jsonRequest.put("username",binding.phoneEditText.getText());
+            jsonRequest.put("password", binding.passwordEditText.getText());
+            Log.d("phone",binding.phoneEditText.toString());
+            Log.d("password",binding.passwordEditText.toString());
+
+        } catch (JSONException e) {
+            Log.d("JsonExceptionSignup",e.toString());
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonRequest,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(getApplicationContext(),"Signup successful",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(SignUp.this, MainActivity.class);
+                startActivity(intent);
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("volleyError", error.toString());
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
     }
     //----------------------------------------end validation-------------------------------
 }
