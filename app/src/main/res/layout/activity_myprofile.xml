@@ -64,7 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-                        android:text="Name ="
+                        android:text="@string/name"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                         android:id="@+id/text2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AGE ="
+                        android:text="@string/age"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="Location ="
+                        android:text="@string/age"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -143,13 +143,13 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="39dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="88dp"
                         android:layout_height="wrap_content"
-                        android:text="TYPE"
+                        android:text="@string/type"
                         android:textSize="25dp"
                         android:textStyle="bold" />
 
@@ -157,10 +157,9 @@
                         android:id="@+id/txtType"
                         android:layout_width="151dp"
                         android:layout_height="match_parent"
-                        android:hint="Type"
-                        android:textAlignment="center"
                         android:gravity="center"
-                        />
+                        android:hint="Type"
+                        android:textAlignment="center" />
                 </LinearLayout>
 
 
@@ -179,7 +178,8 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="50dp"
-            android:text="BECOME A DONOR " />
+            android:text="@string/become_a_donor"
+            android:background="@drawable/edit_round"/>
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -25,6 +26,12 @@ public class searchdonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySearchdonorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.patientNameContainer.setHelperText("");
+        binding.pintContainer.setHelperText("");
+        binding.addressContainer.setHelperText("");
+        patientNameFocusListener();
+        pintFocusListener();
+        addressFocusListener();
 
         arrbloodGroup.add("A+");
         arrbloodGroup.add("AB+");
@@ -36,7 +43,7 @@ public class searchdonor extends AppCompatActivity {
 
         ArrayAdapter<String> bloodAdapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arrbloodGroup);
         binding.bloodgroup.setAdapter(bloodAdapter);
-        binding.button.setOnClickListener(new View.OnClickListener() {
+        binding.btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -56,10 +63,10 @@ public class searchdonor extends AppCompatActivity {
 //                    String address=binding.address.getText().toString();
 //                }
 
-                String patient = binding.patientName.getText().toString();
+                String patient = binding.patientNameEditText.getText().toString();
                 String bloodgroup = binding.bloodgroup.getText().toString();
-                String pint = binding.pint.getText().toString();
-                String s = binding.address.getText().toString();
+                String pint = binding.pintEditText.getText().toString();
+                String s = binding.addressEditText.getText().toString();
                 if (patient.isEmpty() && bloodgroup.isEmpty() && pint.isEmpty() && s.isEmpty()) {
                     Toast.makeText(searchdonor.this, "Please enter a field", Toast.LENGTH_SHORT).show();
                 } else {
@@ -73,6 +80,102 @@ public class searchdonor extends AppCompatActivity {
             }
 
         });
+    }
+    private void patientNameFocusListener() {
+        binding.patientNameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+                String result = validpatientName();
+                if (result != null) {
+                    binding.patientNameContainer.setHelperText(result);
+
+                } else {
+                    binding.patientNameContainer.setHelperText("");
+                    // Clear error text if email is valid
+                }
+            }
+        });
+    }
+    private String validpatientName() {
+        String patientNameText = binding.patientNameEditText.getText().toString().trim();
+        if (patientNameText.isEmpty()) {
+            return "Patient name cannot be empty";
+        }
+        return null; // Return null if email is valid
+    }
+    private void pintFocusListener() {
+        binding.pintEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String result = validPint();
+                if (result != null) {
+                    binding.pintContainer.setHelperText(result);
+
+                } else {
+                    binding.pintContainer.setHelperText("");
+                    // Clear error text if email is valid
+                }
+            }
+        });
+
+    }
+
+    private String validPint() {
+        String pintNumber = binding.pintEditText.getText().toString().trim();
+        if (pintNumber.length()>3) {
+            return "Less than 3 pint is valid";
+        }
+        return null; // Return null if email is valid
+    }
+    private void addressFocusListener() {
+        binding.addressEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+                String result = validAddress();
+                if (result != null) {
+                    binding.addressContainer.setHelperText(result);
+
+                } else {
+                    binding.addressContainer.setHelperText("");
+                    // Clear error text if email is valid
+                }
+            }
+        });
+    }
+    private String validAddress() {
+        String addressText = binding.addressEditText.getText().toString().trim();
+        if (addressText.isEmpty()) {
+            return "Please enter your address";
+        }
+        return null; // Return null if email is valid
     }
 }
 

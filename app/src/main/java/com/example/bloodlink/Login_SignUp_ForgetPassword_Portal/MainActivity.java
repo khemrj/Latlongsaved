@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         // Ensure textView5 retains its initial text
         binding.titleTextView.setText("BloodLink");
 
-//        binding.emailEditText.setLongClickable(false);
-//        binding.emailEditText.setTextIsSelectable(false);
+       binding.emailContainer.setHelperText("");
+       binding.passwordContainer.setHelperText("");
         emailFocusListener();
         passwordFocusListener();
 //        binding.textView3.setOnClickListener(new View.OnClickListener() {
@@ -63,14 +63,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-
+                binding.emailContainer.setHelperText(""); // Clear error message initially
                 String result = validEmail();
                 if (result != null) {
                     binding.emailContainer.setHelperText(result);
 
-                } else {
-                    binding.emailContainer.setHelperText("");
-                   // Clear error text if email is valid
                 }
             }
         });
@@ -97,13 +94,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                binding.passwordContainer.setHelperText(""); // Clear error message initially
                 String result = validPassword();
                 if (result != null) {
                     binding.passwordContainer.setHelperText(result);
 
-                } else {
-                    binding.passwordContainer.setHelperText("");
-                    // Clear error text if email is valid
                 }
             }
         });

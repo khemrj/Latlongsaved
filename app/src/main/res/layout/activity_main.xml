@@ -38,12 +38,14 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="40dp"
         app:boxBackgroundColor="@color/white"
-        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/Lightblue"
+        app:boxBackgroundMode="filled"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
-        app:boxStrokeColor="@color/white"
+
+
         app:endIconMode="clear_text"
         app:endIconTint="#2196F3"
         app:helperText="@string/required"
@@ -56,7 +58,7 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/email"
+            android:hint="@string/user_name"
             android:inputType="textEmailAddress"
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -70,13 +72,14 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="15dp"
         app:boxBackgroundColor="@color/white"
-        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#2196F3"
+        app:boxBackgroundMode="filled"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
 
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
-        app:boxStrokeColor="#2196F3"
+
         app:counterEnabled="true"
         app:counterMaxLength="8"
 
@@ -107,6 +110,20 @@
         android:textAlignment="center"
         android:textColor="#ffff"
         android:textSize="18dp"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/sign_up"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="18dp"
+        android:background="@drawable/edit_round"
         android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"

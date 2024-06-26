@@ -16,4 +16,10 @@
     <string name="bloodgroup">BloodGroup\n</string>
     <string name="pints">"Pints = "</string>
     <string name="location">Location =</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="pint">Pint</string>
+    <string name="address">Address</string>
+    <string name="user_name">User Name\n</string>
+    <string name="type">Type\n</string>
+    <string name="become_a_donor">Become a donor</string>
 </resources>

@@ -18,6 +18,7 @@ public class forgetPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityForgetPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.phoneContainer.setHelperText("");
         phoneFocusListener();
     }
 
