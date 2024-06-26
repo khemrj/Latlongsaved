@@ -39,7 +39,7 @@ ActivityDlistBinding binding;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dlist);
 
-        reqbtn=findViewById(R.id.loginButton);
+        reqbtn=findViewById(R.id.updateButton);
         Intent i = getIntent();
         if (i != null) {
             mydevID = i.getStringExtra("devId");

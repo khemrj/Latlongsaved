@@ -1,9 +1,7 @@
 package com.example.bloodlink;
 
 import android.content.Intent;
-import android.media.session.MediaSession;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,23 +11,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bloodlink.dashboard.dashboard;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -41,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.loginButton);
+        button = findViewById(R.id.updateButton);
         editText = findViewById(R.id.editText);
         editText2 = findViewById(R.id.editText2);
         textView3 = findViewById(R.id.textView3);
@@ -55,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 createNewUser();
+                try {
+                    createNewUser();
+                }
+                catch (Exception e){
+                    Log.d("createUserException", e.toString());
+                }
 
             }
         });
@@ -64,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String[] Token = new String[1];
 
-        String url = "http://192.168.1.69:8085/api/v1/user/signup";
+        String url = R.string.url"/api/v1/user/signup";
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         JSONObject jsonRequest = new JSONObject();

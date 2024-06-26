@@ -1,15 +1,19 @@
 package com.example.bloodlink.searchdonor;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bloodlink.R;
 import com.example.bloodlink.databinding.ActivitySearchdonorBinding;
 import com.example.bloodlink.dlist;
 import com.example.bloodlink.requestedpage.requestlistpage;
@@ -18,6 +22,7 @@ import java.util.ArrayList;
 
 public class searchdonor extends AppCompatActivity {
     ActivitySearchdonorBinding binding;
+    private Button btn_updateDonor;
     ArrayList<String>arrbloodGroup=new ArrayList<>();
 
     @Override
@@ -25,6 +30,7 @@ public class searchdonor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySearchdonorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        btn_updateDonor = findViewById(com.example.bloodlink.R.id.updateButton);
 
         arrbloodGroup.add("A+");
         arrbloodGroup.add("AB+");
@@ -36,7 +42,7 @@ public class searchdonor extends AppCompatActivity {
 
         ArrayAdapter<String> bloodAdapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arrbloodGroup);
         binding.bloodgroup.setAdapter(bloodAdapter);
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
+        btn_updateDonor.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {

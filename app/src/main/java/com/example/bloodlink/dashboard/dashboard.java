@@ -45,14 +45,15 @@ ActivityDashboardBinding binding;
         binding=ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         try{
-            Intent intent = getIntent();
-            String Token = intent.getStringExtra("Token");
+            Intent intent1 = getIntent();
+            String Token = intent1.getStringExtra("Token");
             Log.d("Malware",Token);
             Demo(Token);
         }
         catch (Exception e){
             Log.e("MYAPP", "exception: " + e.getMessage());
         }
+
         notify = findViewById(R.id.notification);
         notify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +74,7 @@ ActivityDashboardBinding binding;
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(dashboard.this, searchdonor.class);
+
                 startActivity(intent);
             }
         });
@@ -80,7 +82,9 @@ ActivityDashboardBinding binding;
            @Override
            public void onClick(View view) {
                Intent intent=new Intent(dashboard.this, myprofile.class);
-               startActivity(intent);
+
+               //startActivity(intent);
+
            }
        });
 
@@ -88,7 +92,6 @@ ActivityDashboardBinding binding;
     public void Demo( String Token){
         String url = "http://192.168.1.69:8085/api/v1/user/users";
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url, new JSONArray(),new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
