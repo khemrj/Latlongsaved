@@ -180,7 +180,7 @@ public class becomeadonor extends AppCompatActivity {
         return editText.getText() != null && !editText.getText().toString().isEmpty();
     }
     public void updateDonor(String token){
-        String url = "http://192.168.1.69:8085/api/v1/members";
+        String url = "http://192.168.1.69:8085/api/v1/donor-infos";
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         JSONObject jsonRequest = new JSONObject();
@@ -188,7 +188,7 @@ public class becomeadonor extends AppCompatActivity {
             jsonRequest.put("firstname","RAm");
             jsonRequest.put("middlename", "Kumar");
             jsonRequest.put("lastname", "Chaudhary");
-            jsonRequest.put("dateOfBirth", "2000-12-01");
+            jsonRequest.put("dateOfBirth","" );
             jsonRequest.put("bloodGroup","AB-" );
             jsonRequest.put("gender","Male" );
             jsonRequest.put("email","khemrajjoshijk@gmail.com" );

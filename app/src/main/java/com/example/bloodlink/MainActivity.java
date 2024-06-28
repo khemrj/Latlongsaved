@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String[] Token = new String[1];
 
-        String url = R.string.url"/api/v1/user/signup";
+        String url = "http://192.168.1.69:8085/api/v1/user/login";
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         JSONObject jsonRequest = new JSONObject();
