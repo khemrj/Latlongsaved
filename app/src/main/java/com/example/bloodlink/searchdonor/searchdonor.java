@@ -1,9 +1,11 @@
 package com.example.bloodlink.searchdonor;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,6 +20,7 @@ import com.example.bloodlink.requestedpage.requestlistpage;
 import java.util.ArrayList;
 
 public class searchdonor extends AppCompatActivity {
+
     ActivitySearchdonorBinding binding;
     ArrayList<String>arrbloodGroup=new ArrayList<>();
 
@@ -80,6 +83,7 @@ public class searchdonor extends AppCompatActivity {
             }
 
         });
+
     }
     private void patientNameFocusListener() {
         binding.patientNameEditText.addTextChangedListener(new TextWatcher() {
